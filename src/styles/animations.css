@@ -1,0 +1,9 @@
+/* optional: additional small animation helpers */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0px); }
+}
+.float {
+  animation: float 4s ease-in-out infinite;
+}
