@@ -106,7 +106,7 @@ export default function Hero() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
           viewport={{ once: true }}
-          className="flex justify-center md:justify-end relative"
+          className="hidden md:flex justify-center md:justify-end relative"
         >
           <div className="relative transform-gpu transition-all duration-500 hover:rotate-1 hover:-rotate-y-3 hover:scale-[1.03]">
             <div className="absolute inset-0 rounded-3xl bg-black/10 blur-xl shadow-2xl"></div>
