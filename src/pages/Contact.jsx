@@ -2,7 +2,7 @@ import React from "react";
 import SEO from "../components/SEO";
 import ContactSection from "../home/ContactSection";
 
-export default function contact() {
+export default function Contact() {
   return (
     <>
       <SEO

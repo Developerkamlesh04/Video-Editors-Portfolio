@@ -8,7 +8,6 @@ import AboutSection from "../home/AboutSection";
 import Testimonials from "../home/Testimonials";
 import constants from "../utils/constants";
 
-
 export default function Home() {
   return (
     <>

@@ -1,224 +1,123 @@
-import React, { useState } from "react";
-import {
-  motion,
-  useMotionValue,
-  useTransform,
-  useReducedMotion,
-} from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
 import { FaInstagram, FaYoutube, FaLinkedinIn } from "react-icons/fa";
 import { TypeAnimation } from "react-type-animation";
 
 export default function Hero() {
-  const reduceMotion = useReducedMotion();
-  const [cursor, setCursor] = useState({ x: 0, y: 0 });
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  const rotateX = useTransform(mouseY, [0, 1], [8, -8]);
-  const rotateY = useTransform(mouseX, [0, 1], [-8, 8]);
-
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    name: "Subham Kumar",
-    jobTitle: "Video Editor",
-    url: "https://your-site.example",
-    sameAs: [
-      "https://instagram.com/your-profile",
-      "https://youtube.com/your-channel",
-      "https://linkedin.com/in/your-profile",
-    ],
-    description:
-      "Cinematic video editor specializing in storytelling, color grading, and motion design for creators and brands.",
-  };
-
   return (
-    <header
-      role="banner"
-      aria-label="Hero - Subham Kumar, Video Editor"
-      className="relative overflow-hidden bg-[#080808] text-white py-10 sm:py-14 md:py-18"
-      onMouseMove={(e) => setCursor({ x: e.clientX, y: e.clientY })}
-    >
-      {/* SEO Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+    <header className="relative bg-white text-gray-900 py-7 md:py-2.5 overflow-hidden">
+      {/* Soft Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-white via-white to-gray-100 pointer-events-none" />
 
-      {/* Floating Gradient Layers */}
-      <div aria-hidden className="absolute inset-0 overflow-hidden">
-        <motion.div
-          className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-gradient-to-br from-yellow-400/30 to-purple-500/30 blur-[150px]"
-          animate={
-            !reduceMotion ? { x: [0, 50, -50, 0], y: [0, -30, 30, 0] } : {}
-          }
-          transition={{ duration: 20, repeat: Infinity }}
-        />
-        <motion.div
-          className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-gradient-to-tr from-pink-500/30 to-purple-700/30 blur-[120px]"
-          animate={
-            !reduceMotion ? { x: [0, -40, 40, 0], y: [0, 40, -40, 0] } : {}
-          }
-          transition={{ duration: 18, repeat: Infinity }}
-        />
-      </div>
+      {/* Floating Glass Blobs */}
+      <div className="absolute -top-10 -left-20 w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 bg-white/40 backdrop-blur-2xl rounded-full shadow-2xl" />
+      <div className="absolute bottom-[-120px] right-[-60px] w-72 h-72 sm:w-96 sm:h-96 lg:w-[520px] lg:h-[520px] bg-white/30 backdrop-blur-3xl rounded-full shadow-2xl" />
 
-      {/* Main Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        {/* LEFT SECTION */}
+      {/* MAIN CONTENT */}
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 md:px-10 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
+        {/* LEFT CONTENT */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="text-center md:text-left space-y-6 sm:space-y-8"
+          className="space-y-7 text-center md:text-left"
         >
-          <h1 className="text-[clamp(2.2rem,5vw,4.5rem)] font-extrabold leading-tight">
-            <span className="block">VIDEO</span>
-            <motion.span
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 0.2, type: "spring" }}
-              className="block bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-600 bg-clip-text text-transparent animate-gradient-x drop-shadow-[0_0_18px_rgba(255,255,0,0.4)]"
-            >
-              EDITOR
-            </motion.span>
-          </h1>
+          <div className="space-y-2">
+            <p className="uppercase tracking-widest text-sm text-gray-400">
+              Professional Portfolio
+            </p>
 
-          <p className="text-lg sm:text-xl text-gray-300 font-light">
+            <h1 className="text-[clamp(2.6rem,5vw,4.8rem)] font-black text-gray-900 leading-tight">
+              Premium Video
+              <span className="block bg-gradient-to-r from-gray-900 to-gray-500 bg-clip-text text-transparent">
+                Editing Expert
+              </span>
+            </h1>
+          </div>
+
+          <p className="text-xl text-gray-600 font-light">
             I’m a{" "}
             <TypeAnimation
               sequence={[
-                "Cinematic Storyteller",
+                "Cinematic Editor",
                 2000,
-                "Color Grading Expert",
+                "Color Grade Specialist",
                 2000,
-                "Motion Designer",
+                "Storytelling Artist",
                 2000,
               ]}
               wrapper="span"
-              speed={45}
+              speed={40}
               repeat={Infinity}
-              className="text-yellow-400 font-medium"
+              className="text-gray-900 font-medium"
             />
           </p>
 
-          <p className="text-gray-400 max-w-xl mx-auto md:mx-0 leading-relaxed">
-            Crafting unforgettable visuals with storytelling flow, color
-            precision, and emotional impact for creators & brands.
+          <p className="text-gray-500 max-w-xl leading-relaxed mx-auto md:mx-0">
+            Hi, I’m a video editor who loves turning simple moments into
+            powerful stories. From reels to professional brand videos—my focus
+            is creativity, clarity, and quality.”
           </p>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
+          {/* CTA BUTTONS */}
+          <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4 pt-4">
             <motion.a
               href="#work"
-              whileHover={{ scale: 1.05, x: 3, y: -3 }}
-              whileTap={{ scale: 0.98 }}
-              className="relative inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold bg-gradient-to-r from-yellow-400 to-yellow-500 text-black shadow-[0_0_20px_rgba(255,255,0,0.4)] transition"
+              whileHover={{ scale: 1.05 }}
+              className="px-8 py-3 rounded-2xl bg-black text-white font-semibold shadow-md hover:bg-gray-800 transition"
             >
-              View Work →
+              View Portfolio →
             </motion.a>
+
             <motion.a
               href="#contact"
-              whileHover={{ scale: 1.05, x: 3, y: -3 }}
-              whileTap={{ scale: 0.98 }}
-              className="inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold border border-gray-600 hover:bg-white hover:text-black transition"
+              whileHover={{ scale: 1.05 }}
+              className="px-8 py-3 rounded-2xl border border-gray-300 bg-white font-semibold hover:bg-gray-100 transition shadow-sm"
             >
-              Get In Touch
+              Contact Me
             </motion.a>
           </div>
 
-          {/* Social Icons */}
-          <div className="flex justify-center md:justify-start gap-5 text-2xl text-gray-400 mt-6">
+          {/* SOCIAL ICONS */}
+          <div className="flex justify-center md:justify-start gap-6 text-2xl text-gray-400 pt-6">
             {[
               { icon: <FaInstagram />, link: "https://instagram.com" },
               { icon: <FaYoutube />, link: "https://youtube.com" },
               { icon: <FaLinkedinIn />, link: "https://linkedin.com" },
-            ].map((social, i) => (
+            ].map((s, i) => (
               <motion.a
                 key={i}
-                href={social.link}
+                href={s.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ scale: 1.25, color: "#facc15" }}
-                transition={{ type: "spring", stiffness: 300 }}
+                whileHover={{ scale: 1.2, color: "#000" }}
+                className="transition"
               >
-                {social.icon}
+                {s.icon}
               </motion.a>
             ))}
           </div>
-
-          <p className="text-gray-500 italic text-sm mt-3">— Subham Kumar</p>
         </motion.div>
 
-        {/* RIGHT SECTION (IMAGE + TAGS) */}
-        <motion.figure
-          role="img"
-          aria-label="Subham editing on laptop"
-          className="relative flex justify-center md:justify-end"
-          onMouseMove={(e) => {
-            const rect = e.currentTarget.getBoundingClientRect();
-            mouseX.set((e.clientX - rect.left) / rect.width);
-            mouseY.set((e.clientY - rect.top) / rect.height);
-          }}
+        {/* RIGHT IMAGE – 3D Tilt Card */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="flex justify-center md:justify-end relative"
         >
-          <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-purple-200 via-pink-200 to-yellow-100 opacity-20 blur-3xl pointer-events-none" />
+          <div className="relative transform-gpu transition-all duration-500 hover:rotate-1 hover:-rotate-y-3 hover:scale-[1.03]">
+            <div className="absolute inset-0 rounded-3xl bg-black/10 blur-xl shadow-2xl"></div>
 
-          <motion.div
-            style={{ rotateX, rotateY }}
-            className=""
-          >
             <img
               src="editor.png"
-              alt="Subham editing on laptop"
-              loading="lazy"
-              className="w-56 sm:w-64 md:w-80 lg:w-96 rounded-[2rem] object-cover border border-white/20 hover:scale-105 transition-transform duration-300"
+              alt="Video Editor Working"
+              className="relative w-60 sm:w-60 md:w-72 lg:w-96 rounded-3xl object-cover shadow-xl"
             />
-          </motion.div>
-
-          {/* Floating Skill Tags */}
-          <motion.span
-            className="hidden sm:inline-flex absolute -top-8 -left-8 bg-yellow-400 text-black font-bold px-3 py-1.5 rounded-full text-xs shadow-[0_0_12px_rgba(255,255,0,0.6)] rotate-[-8deg]"
-            animate={!reduceMotion ? { y: [0, -6, 0] } : {}}
-            transition={{ repeat: Infinity, duration: 2.2 }}
-          >
-            ⚡ COLOR GRADING
-          </motion.span>
-
-          <motion.span
-            className="hidden sm:inline-flex absolute top-1/2 -right-10 bg-pink-500 text-white font-bold px-3 py-1.5 rounded-full text-xs shadow-[0_0_12px_rgba(255,0,255,0.6)] rotate-[6deg]"
-            animate={!reduceMotion ? { y: [0, 6, 0] } : {}}
-            transition={{ repeat: Infinity, duration: 2.4 }}
-          >
-            🎞️ MOTION DESIGN
-          </motion.span>
-
-          <motion.span
-            className="hidden md:inline-flex absolute bottom-8 -left-6 bg-cyan-400 text-black font-bold px-3 py-1.5 rounded-full text-xs shadow-[0_0_12px_rgba(0,255,255,0.6)] rotate-[4deg]"
-            animate={!reduceMotion ? { y: [0, 6, 0] } : {}}
-            transition={{ repeat: Infinity, duration: 3 }}
-          >
-            🎬 STORY EDITING
-          </motion.span>
-
-          {/* Watch Reel */}
-          <motion.a
-            href="#reel"
-            className="absolute -bottom-10 right-4 bg-yellow-400 text-black font-bold px-4 py-2 rounded-full shadow-[0_0_25px_rgba(255,255,0,0.6)] hover:scale-110 transition"
-            animate={!reduceMotion ? { y: [0, -6, 0] } : {}}
-            transition={{ repeat: Infinity, duration: 1.8 }}
-          >
-            ▶ Watch Reel
-          </motion.a>
-        </motion.figure>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 text-gray-400 text-sm"
-        aria-hidden
-      >
-        <span className="inline-block animate-bounce">↓</span> Scroll
+          </div>
+        </motion.div>
       </div>
     </header>
   );

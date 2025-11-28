@@ -24,8 +24,8 @@ export default function Navbar() {
     <header
       className={`sticky top-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-[#0a0a0a]/95 backdrop-blur-xl shadow-lg border-b border-purple-500/20"
-          : "bg-[#0a0a0a]"
+          ? "bg-white/90 backdrop-blur-xl shadow-lg border-b border-gray-200"
+          : "bg-white"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -34,15 +34,15 @@ export default function Navbar() {
           <motion.img
             src="/E LOGO.png"
             alt="Logo"
-            whileHover={{ rotate: 15, scale: 1.15 }}
+            whileHover={{ rotate: 12, scale: 1.1 }}
             transition={{ type: "spring", stiffness: 250 }}
-            className="w-10 h-10 drop-shadow-xl"
+            className="w-10 h-10"
           />
           <div className="leading-tight">
-            <h1 className="font-extrabold text-white text-lg tracking-wide">
+            <h1 className="font-extrabold text-gray-900 text-lg tracking-wide">
               Subham Kumar
             </h1>
-            <p className="text-xs text-purple-300">
+            <p className="text-xs text-gray-500">
               Video Editor • Motion Designer
             </p>
           </div>
@@ -50,13 +50,15 @@ export default function Navbar() {
 
         {/* Desktop Menu */}
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
-          {links.map((link, i) => (
+          {links.map((link) => (
             <NavLink
               key={link.path}
               to={link.path}
               className={({ isActive }) =>
-                `relative px-1 py-1 transition-all duration-300 hover:text-yellow-400 ${
-                  isActive ? "text-yellow-400 font-semibold" : "text-white/80"
+                `relative px-1 py-1 transition-all duration-300 ${
+                  isActive
+                    ? "text-black font-semibold"
+                    : "text-gray-600 hover:text-black"
                 }`
               }
             >
@@ -66,7 +68,7 @@ export default function Navbar() {
                   {isActive && (
                     <motion.span
                       layoutId="underline"
-                      className="absolute left-0 -bottom-1 w-full h-[3px] bg-gradient-to-r from-purple-500 via-yellow-500 to-yellow-400 rounded-full"
+                      className="absolute left-0 -bottom-1 w-full h-[3px] bg-black rounded-full"
                     />
                   )}
                 </>
@@ -74,25 +76,24 @@ export default function Navbar() {
             </NavLink>
           ))}
 
-          {/* CTA Button */}
+          {/* CTA */}
           <NavLink
             to="/contact"
-            className="relative px-6 py-2 rounded-2xl bg-gradient-to-r from-purple-500 via-yellow-500 to-yellow-400 text-white font-semibold shadow-lg hover:scale-105 hover:shadow-2xl transition-all duration-300"
+            className="relative px-6 py-2 rounded-xl bg-black text-white font-semibold shadow-md hover:scale-105 hover:shadow-xl transition-all duration-300"
           >
             Hire Me
-            <span className="absolute inset-0 rounded-2xl shadow-[0_0_40px_rgba(255,255,0,0.4)] animate-pulse"></span>
           </NavLink>
         </nav>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Button */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden p-2 rounded-md hover:bg-white/10 transition-all duration-300"
+          className="md:hidden p-2 rounded-md hover:bg-gray-100 transition-all duration-300"
         >
           {menuOpen ? (
-            <X className="w-6 h-6 text-white" />
+            <X className="w-6 h-6 text-black" />
           ) : (
-            <Menu className="w-6 h-6 text-white" />
+            <Menu className="w-6 h-6 text-black" />
           )}
         </button>
       </div>
@@ -110,11 +111,11 @@ export default function Navbar() {
             />
 
             <motion.nav
-              initial={{ y: -100, opacity: 0 }}
+              initial={{ y: -80, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -100, opacity: 0 }}
+              exit={{ y: -80, opacity: 0 }}
               transition={{ type: "spring", stiffness: 120, damping: 16 }}
-              className="fixed top-0 left-0 right-0 bg-[#0a0a0a]/95 backdrop-blur-xl border-b border-purple-500/20 shadow-lg z-50 rounded-b-3xl"
+              className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-xl border-b border-gray-200 shadow-lg z-50 rounded-b-3xl"
             >
               <div className="px-6 py-6 flex flex-col gap-6 text-base font-medium">
                 {links.map((link) => (
@@ -125,8 +126,8 @@ export default function Navbar() {
                     className={({ isActive }) =>
                       `block transition-all duration-200 ${
                         isActive
-                          ? "text-yellow-400 font-semibold"
-                          : "text-white/80 hover:text-yellow-400"
+                          ? "text-black font-semibold"
+                          : "text-gray-700 hover:text-black"
                       }`
                     }
                   >
@@ -137,10 +138,9 @@ export default function Navbar() {
                 <NavLink
                   to="/contact"
                   onClick={() => setMenuOpen(false)}
-                  className="relative px-6 py-2 text-center rounded-2xl bg-gradient-to-r from-purple-500 via-yellow-500 to-yellow-400 text-white font-semibold shadow-lg hover:scale-105 hover:shadow-2xl transition-all duration-300"
+                  className="px-6 py-2 text-center rounded-xl bg-black text-white font-semibold shadow-md hover:scale-105 hover:shadow-xl transition-all duration-300"
                 >
                   Hire Me
-                  <span className="absolute inset-0 rounded-2xl shadow-[0_0_40px_rgba(255,255,0,0.4)] animate-pulse"></span>
                 </NavLink>
               </div>
             </motion.nav>

@@ -1,7 +1,7 @@
 // ✅ constants.js
 
 export const constants = {
-  SITE_NAME: "Subham kumar Bhargav Kumar",
+  SITE_NAME: "MindSpark Solutions",
   SITE_DESCRIPTION:
     "Professional Video Editor — cinematic edits, color grading, motion design.",
   SITE_KEYWORDS: "video editor, motion designer, color grading, promo reels",

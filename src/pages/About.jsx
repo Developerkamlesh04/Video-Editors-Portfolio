@@ -2,8 +2,6 @@ import React from "react";
 import SEO from "../components/SEO";
 import AboutSection from "../home/AboutSection";
 
-
-
 export default function About() {
   return (
     <>

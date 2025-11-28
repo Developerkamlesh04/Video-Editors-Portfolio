@@ -29,67 +29,115 @@ export default function ServicesSection() {
   return (
     <section
       id="services"
-      className="relative max-w-7xl mx-auto px-6 py-28 bg-[#0a0a0a] text-white overflow-hidden"
+      className="
+        relative max-w-7xl mx-auto px-5 sm:px-6 md:px-8 py-24 md:py-32
+        bg-white text-gray-900 overflow-hidden
+      "
     >
-      {/* Floating neon particles */}
+      {/* Background Premium Gradient Layer */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-gray-50 to-white" />
+
+      {/* Floating Abstract Shapes */}
       <div className="absolute inset-0 pointer-events-none">
-        <span className="absolute w-2 h-2 bg-purple-500/50 rounded-full animate-bounce top-10 left-20"></span>
-        <span className="absolute w-3 h-3 bg-yellow-400/30 rounded-full animate-pulse top-40 right-16"></span>
-        <span className="absolute w-1.5 h-1.5 bg-pink-400/40 rounded-full animate-bounce bottom-20 left-1/3"></span>
+        <div className="absolute top-0 left-[-50px] w-60 h-60 bg-purple-200/30 blur-3xl rounded-full" />
+        <div className="absolute right-[-60px] bottom-10 w-72 h-72 bg-blue-200/30 blur-3xl rounded-full" />
+        <div className="absolute left-1/2 top-1/2 w-40 h-40 bg-gray-200/40 blur-2xl rounded-full" />
       </div>
 
       {/* Section Header */}
-      <div className="text-center mb-20 relative z-10">
+      <div className="text-center relative z-10 mb-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-500/20 to-indigo-500/20 border border-purple-400/30 text-yellow-400 font-medium mb-4 drop-shadow-md"
+          className="
+            inline-flex items-center gap-2 px-5 py-2.5 rounded-full 
+            bg-white/50 backdrop-blur-xl border border-gray-200 shadow-lg
+            text-gray-700 font-medium mb-4
+          "
         >
-          <Sparkles className="w-4 h-4" /> What I Do
+          <Sparkles className="w-4 h-4 text-yellow-500" /> Premium Services
         </motion.div>
 
         <motion.h3
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-200 drop-shadow-lg"
+          className="
+            text-4xl md:text-5xl font-extrabold tracking-tight
+            bg-clip-text text-transparent 
+            bg-gradient-to-r from-black via-gray-700 to-gray-500
+          "
         >
-          Services I Offer
+          What I Can Do For You
         </motion.h3>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-gray-300 mt-4 max-w-2xl mx-auto text-base md:text-lg leading-relaxed"
+          className="
+            text-gray-600 max-w-2xl mx-auto mt-5 
+            text-sm sm:text-base md:text-lg leading-relaxed
+          "
         >
-          Helping brands and creators tell visual stories through impactful
-          edits and creative visuals.
+          Delivering high-end video editing, visual effects, color science, and
+          motion graphics designed for brands, creators, and premium content.
         </motion.p>
       </div>
 
-      {/* Services Grid */}
-      <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4 relative z-10">
+      {/* Premium Service Cards */}
+      <div
+        className="
+        grid gap-8 sm:gap-10 
+        sm:grid-cols-2 lg:grid-cols-4
+        relative z-10
+      "
+      >
         {services.map((s, i) => (
           <motion.div
             key={s.id}
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: i * 0.15 }}
-            className="group relative rounded-3xl bg-white/10 backdrop-blur-xl border border-white/20 p-6 shadow-lg hover:shadow-2xl hover:-translate-y-3 hover:scale-105 transition-all duration-400"
+            className="
+              group relative rounded-3xl
+              bg-white/80 backdrop-blur-xl 
+              border border-gray-200
+              p-6 sm:p-7 shadow-[0_8px_28px_rgba(0,0,0,0.06)]
+              hover:shadow-[0_18px_40px_rgba(0,0,0,0.14)]
+              hover:-translate-y-3 hover:scale-[1.03]
+              transition-all duration-500
+            "
           >
-            <h4 className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-yellow-500 to-yellow-400 font-bold text-lg mb-3 drop-shadow-xl">
+            {/* Card Title */}
+            <h4
+              className="
+                font-semibold text-lg sm:text-xl mb-3
+                bg-clip-text text-transparent 
+                bg-gradient-to-r from-black via-gray-700 to-gray-500
+              "
+            >
               {s.title}
             </h4>
-            <p className="text-gray-200 text-sm leading-relaxed">{s.desc}</p>
 
-            {/* Animated underline */}
-            <div className="mt-4 w-12 h-[3px] bg-gradient-to-r from-purple-500 via-yellow-500 to-yellow-400 rounded-full transition-all duration-300 group-hover:w-20"></div>
+            {/* Description */}
+            <p className="text-gray-600 text-sm sm:text-[15px] leading-relaxed">
+              {s.desc}
+            </p>
 
-            {/* Floating glow effects */}
-            <div className="absolute -top-4 -right-4 w-8 h-8 bg-purple-500/30 rounded-full blur-2xl animate-pulse pointer-events-none"></div>
-            <div className="absolute bottom-4 -left-6 w-6 h-6 bg-yellow-400/20 rounded-full blur-2xl animate-pulse pointer-events-none"></div>
+            {/* Underline */}
+            <div
+              className="
+              mt-4 w-12 h-[3px] 
+              bg-gradient-to-r from-black to-gray-500 rounded-full
+              transition-all duration-300 group-hover:w-20
+            "
+            />
+
+            {/* Light Glow Accents */}
+            <div className="absolute -top-4 -right-4 w-8 h-8 bg-gray-300/30 rounded-full blur-xl group-hover:scale-125 transition" />
+            <div className="absolute bottom-4 -left-6 w-7 h-7 bg-gray-400/30 rounded-full blur-xl group-hover:scale-125 transition" />
           </motion.div>
         ))}
       </div>

@@ -4,9 +4,10 @@ import Footer from "../components/Footer";
 import useScrollToTop from "../hooks/useScrollToTop";
 
 export default function MainLayout({ children }) {
-  useScrollToTop();
+  useScrollToTop(); // custom hook to scroll to top on route change
+
   return (
-    <div >
+    <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-grow">{children}</main>
       <Footer />
