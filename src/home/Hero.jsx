@@ -57,7 +57,7 @@ export default function Hero() {
           <p className="text-gray-500 max-w-xl leading-relaxed mx-auto md:mx-0">
             Hi, I’m a video editor who loves turning simple moments into
             powerful stories. From reels to professional brand videos—my focus
-            is creativity, clarity, and quality.”
+            is creativity, clarity, and quality.
           </p>
 
           {/* CTA BUTTONS */}
@@ -100,7 +100,7 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* RIGHT IMAGE – 3D Tilt Card */}
+        {/* RIGHT IMAGE – 3D Tilt Card (Hidden on mobile) */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
