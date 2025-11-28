@@ -14,6 +14,7 @@ export default function Navbar() {
     { name: "Contact", path: "/contact" },
   ];
 
+  // Scroll detection
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
@@ -102,6 +103,7 @@ export default function Navbar() {
       <AnimatePresence>
         {menuOpen && (
           <>
+            {/* Overlay */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.3 }}
@@ -110,10 +112,11 @@ export default function Navbar() {
               onClick={() => setMenuOpen(false)}
             />
 
+            {/* Mobile Menu Panel */}
             <motion.nav
-              initial={{ y: -80, opacity: 0 }}
+              initial={{ y: -100, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -80, opacity: 0 }}
+              exit={{ y: -100, opacity: 0 }}
               transition={{ type: "spring", stiffness: 120, damping: 16 }}
               className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-xl border-b border-gray-200 shadow-lg z-50 rounded-b-3xl"
             >
